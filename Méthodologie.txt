@@ -1,0 +1,30 @@
+Méthodologie du projet 
+Sujet : 
+Reddit modération
+Hate, manipulation, disinformation, forgery... These abuses are affecting more and more online content. In order to protect Europeans, the Digital Services Regulation (DSA) frames the activities of platforms, in particular those of GAFAM. It will come into force on February 17, 2024 for all digital platforms. The DSA (Digital Services Act) regulation of October 19, 2022 is, along with the Digital Markets Regulation (DMA), one of the major digital projects of the European Union (EU).
+The Digital Services Act (DSA) aims to put into practice the principle that what is illegal offline is also illegal online. It lays down a series of rules to make digital platforms more responsible and to combat the distribution of illegal or harmful content or products: racist attacks, child pornography, misinformation, the sale of drugs or counterfeit goods... This legislation replaces the outdated Electronic Commerce Directive of June 8, 2000.
+You are a data scientist at reddit. And your job is to help reddit apply the law.
+You have collected subreddits and you want to suggest new ways to alert the community manager to inappropriate behavior. 
+1. Compréhension des besoins
+Définition des objectifs "métier" pour la Wikimedia Foundation.
+Objectif principal : Évaluer la santé et la résilience du projet.
+Questions clés : Le projet dépend-il de trop peu d'individus ? Comment identifier les futurs leaders ?
+Critère de succès : Produire une liste de recommandations basées sur la structure réelle du réseau pour stabiliser la maintenance des articles.
+2. Compréhension des données
+Que contient la base de données de Wikipédia.
+Sources : Historiques de révisions (fichiers XML/SQL), journaux de patrouille, discussions.
+Attributs : user_id, article_id, timestamp, bytes_added, is_revert.
+Exploration : Existe-t-il des anomalies ? (ex: des bots qui font des milliers de modifications et qui risquent de fausser ton réseau de collaboration).
+3. Préparation des données
+Transformation des lignes de log en un graphe.
+Nettoyage : Exclure les bots et les utilisateurs anonymes (IP) si nécessaire.
+Transformation : Créer une matrice d'adjacence. Si l'éditeur A et l'éditeur B modifient le même article dans une fenêtre de temps proche, on crée un lien $e(A, B)$.
+Ingénierie des caractéristiques : Calculer le "poids" des liens selon l'importance de la modification (en octets).
+4. Modélisation
+Détection de communautés : Utiliser l'algorithme de Louvain ou de Leiden pour voir si le projet est segmenté par spécialités médicales.
+Analyse de centralité : Calculer la Betweenness et l' Eigenvector centrality pour trouver les "influenceurs" de contenu.
+Modèle Core-Periphery : Appliquer la décomposition en k-core pour isoler le noyau dur.
+5. Évaluation
+Tu vérifies si ton modèle répond aux questions de départ.
+Test de robustesse : "Si je retire les 5 nœuds les plus centraux, est-ce que le réseau de collaboration se fragmente en morceaux isolés ?"
+Validation : Est-ce que les "groupes" identifiés par l'algorithme correspondent à des réalités (ex: un groupe qui ne fait que de la lutte contre le vandalisme) ?
