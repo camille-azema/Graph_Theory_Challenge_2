@@ -2,9 +2,9 @@
 
 # 1. Data Preparation & Network Construction
 
-- [ ] Clean Data: Filter out bots (e.g., AutoModerator) and deleted/anonymous accounts
-- [ ] Refine Edge Weights: Implement differentiated weights based on interaction type or size
-- [ ] Consolidate Graphs: Create an automated pipeline for generating directed adjacency matrices per subreddit and time window
+- [X] Clean Data: Filter out bots (e.g., AutoModerator) and deleted/anonymous accounts
+- [X] Refine Edge Weights: Implement differentiated weights based on interaction type or size
+- [X] Consolidate Graphs: Create an automated pipeline for generating directed adjacency matrices per subreddit and time window
 
 ## 2. Graph Modeling & Centrality Analysis
 
