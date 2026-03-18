@@ -1,2 +1,2 @@
 *.csv
-*.py
+*__pycache__
